@@ -50,6 +50,7 @@ import { NavigationFlow, NavigationFlowOutNode } from '../../../@dataflow/rclone
 				width: -webkit-fill-available;
 				white-space: nowrap;
 				cursor: text;
+				background: #000;
 			}
 			.editor {
 				width: -webkit-fill-available;

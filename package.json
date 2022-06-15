@@ -1,21 +1,21 @@
 {
-  "name": "rclone-ng",
+  "name": "rc-web",
   "version": "0.5.0",
-  "description": "An angular web application for rclone",
+  "description": "An angular web application for rclone, with dark theme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ElonH/RcloneNg.git"
+    "url": "git+https://github.com/xeung/rc-web.git"
   },
   "bugs": {
-    "url": "https://github.com/ElonH/RcloneNg/issues"
+    "url": "https://github.com/xeung/rc-web/issues"
   },
-  "homepage": "https://github.com/ElonH/RcloneNg#readme",
+  "homepage": "https://github.com/xeung/rc-web#readme",
   "keywords": [
     "rclone",
     "rclone-ng",
     "RcloneNg"
   ],
-  "author": "ElonH <elonhhuang@gmail.com>",
+  "author": "xeung <git+rc-web@xeung.tech>",
   "license": "MIT",
   "scripts": {
     "format": "pretty-quick --staged",

@@ -21,15 +21,22 @@ export interface ITransferring {
 
 export interface CoreStatsFlowOutItemNode {
 	bytes: number;
+	totalBytes: number;
 	checks: number;
 	deletes: number;
+	renames: number;
+	deletedDirs: number;
+	lastError: string;
 	elapsedTime: number;
 	errors: number;
+	eta: number;
 	fatalError: boolean;
 	retryError: boolean;
 	speed: number;
 	transfers: number;
 	transferring?: ITransferring[];
+	checking?: string[];
+
 }
 
 export interface CoreStatsFlowOutNode extends FlowOutNode {

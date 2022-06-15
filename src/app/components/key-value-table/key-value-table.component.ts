@@ -6,17 +6,20 @@ import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 	template: `
 		<ngx-table
 			id="kv-table"
+			class="dark"
 			[configuration]="configuration"
 			[columns]="columns"
 			[data]="keys"
 			[pagination]="{ limit: 100, offset: 0, count: 100 }"
 		>
 			<ng-template let-row let-rowIndex="index">
-				<th style="border: none; padding: 0.25rem 3% 0.25rem 0.5rem;text-align: right;">
+				<th
+					style="border: none; padding: 0.25rem 3% 0.25rem 0.1rem;text-align: right; white-space: nowrap;"
+				>
 					{{ row.title ? row.title : row.key }}
 				</th>
-				<td style="border: none; padding: 0.25rem 0.5rem;">
-					{{ isDefine(data[row.key]) ? data[row.key] : '??' }}
+				<td style="border: none; padding: 0.25rem 0.2rem;">
+					{{ isDefine(data[row.key]) ? data[row.key] : '' }}
 				</td>
 				<ng-container
 					*ngIf="addonTemplate"
@@ -32,8 +35,14 @@ import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 			th::after {
 				content: ':';
 			}
+			th {
+				font-family: 'Pretendard', sans-serif;
+			}
 			tr {
 				vertical-align: top;
+			}
+			td {
+				font-family: 'Menlo', monospace;
 			}
 		`,
 	],

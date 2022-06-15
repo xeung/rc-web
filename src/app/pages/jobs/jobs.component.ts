@@ -83,7 +83,7 @@ import { CleanFinishedGroupDialogComponent } from './dialogs/clean-finished-grou
 							</nb-card>
 						</div>
 						<div class="col-xl-6 col-lg-5 col-md-6 col-sm-7 col-sx-12">
-							<nb-card>
+							<nb-card size="small">
 								<nb-card-header>
 									Summary
 									<nb-icon

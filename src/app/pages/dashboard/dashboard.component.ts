@@ -21,15 +21,10 @@ import { ConnectionService } from '../connection.service';
 	template: `
 		<div class="container-fluid" style="margin-top: 1.5rem;">
 			<div class="row">
-				<div class="col">
-					<nb-card><nb-card-body>tutorial</nb-card-body></nb-card>
-				</div>
-			</div>
-			<div class="row">
 				<div class="col-sm-12 col-md-6">
 					<nb-flip-card #flip [showToggleButton]="false">
 						<nb-card-front>
-							<nb-card size="medium">
+							<nb-card size="small">
 								<nb-card-header>
 									<span>Speed Chart</span>
 									<button
@@ -48,7 +43,7 @@ import { ConnectionService } from '../connection.service';
 							</nb-card>
 						</nb-card-front>
 						<nb-card-back>
-							<nb-card size="medium">
+							<nb-card size="small">
 								<nb-card-header>
 									<span>Speed Limitation</span>
 									<button
@@ -96,7 +91,7 @@ import { ConnectionService } from '../connection.service';
 					</nb-flip-card>
 				</div>
 				<div class="col-sm-12 col-md-6">
-					<nb-card [size]="isSmallerThanSmSize ? '' : 'medium'">
+					<nb-card [size]="isSmallerThanSmSize ? '' : 'small'">
 						<nb-card-header> Summary </nb-card-header>
 						<nb-card-body>
 							<app-rng-summary [stats$]="stats$"> </app-rng-summary>
@@ -107,15 +102,30 @@ import { ConnectionService } from '../connection.service';
 					<nb-card>
 						<nb-card-header> Memory </nb-card-header>
 						<nb-card-body>
-							<app-rng-kv-table [keys]="memKeys" [data]="memVals">
-								<ng-template let-key>
-									<th
-										style="border: none; padding: 0.25rem 0.5rem; text-align: right; width: 7.25rem;"
-									>
-										<app-rng-diff [val]="memDiff[key]"></app-rng-diff>
-									</th>
-								</ng-template>
-							</app-rng-kv-table>
+							<div class="row">
+								<div class="col-6">
+									<app-rng-kv-table [keys]="memKeys" [data]="memVals">
+										<ng-template let-key>
+											<th
+												style="border: none; padding: 0.1rem 0rem; text-align: right; white-space: nowrap;"
+											>
+												<app-rng-diff [val]="memDiff[key]"></app-rng-diff>
+											</th>
+										</ng-template>
+									</app-rng-kv-table>
+								</div>
+								<div class="col-6">
+									<app-rng-kv-table [keys]="memKeys2" [data]="memVals">
+										<ng-template let-key>
+											<th
+												style="border: none; padding: 0.1rem 0rem; text-align: right; white-space: nowrap;"
+											>
+												<app-rng-diff [val]="memDiff[key]"></app-rng-diff>
+											</th>
+										</ng-template>
+									</app-rng-kv-table>
+								</div>
+							</div>
 						</nb-card-body>
 					</nb-card>
 				</div>
@@ -169,7 +179,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 	memKeys = [
 		{ key: 'Alloc' },
 		{ key: 'BuckHashSys' },
-		{ key: 'Frees' },
 		{ key: 'GCSys' },
 		{ key: 'HeapAlloc' },
 		{ key: 'HeapIdle' },
@@ -178,15 +187,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
 		{ key: 'HeapReleased' },
 		{ key: 'HeapSys' },
 		{ key: 'MCacheInuse' },
-		{ key: 'MCacheSys' },
-		{ key: 'MSpanInuse' },
-		{ key: 'MSpanSys' },
-		{ key: 'Mallocs' },
-		{ key: 'OtherSys' },
-		{ key: 'StackInuse' },
-		{ key: 'StackSys' },
-		{ key: 'Sys' },
+	];
+	memKeys2 = [
 		{ key: 'TotalAlloc' },
+		{ key: 'Frees' },
+		{ key: 'Sys' },
+		{ key: 'StackSys' },
+		{ key: 'StackInuse' },
+		{ key: 'OtherSys' },
+		{ key: 'Mallocs' },
+		{ key: 'MSpanSys' },
+		{ key: 'MSpanInuse' },
+		{ key: 'MCacheSys' },
 	];
 	memVals = {};
 	memDiff = {};

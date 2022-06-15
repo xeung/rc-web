@@ -7,17 +7,30 @@ import { ForamtDuration } from '../../../utils/format-duration';
 @Component({
 	selector: 'app-jobs-transferring',
 	template: `
-		<ngx-table [configuration]="configuration" [data]="data" [columns]="columns">
+		<ngx-table class="dark" [configuration]="configuration" [data]="data" [columns]="columns">
 			<ng-template let-row>
 				<td>{{ row.name }}</td>
-				<td>{{ row.sizeHumanReadable }}</td>
-				<td>{{ row.percentage }}</td>
-				<td>{{ row.speedHumanReadable }}</td>
-				<td>{{ row.etaHumanReadable }}</td>
+				<td class="mono">{{ row.sizeHumanReadable }}</td>
+				<td class="mono">{{ row.percentage }}</td>
+				<td class="mono">{{ row.speedHumanReadable }}</td>
+				<td class="mono">{{ row.etaHumanReadable }}</td>
 			</ng-template>
 		</ngx-table>
 	`,
-	styles: [],
+	styles: [
+		`
+			td {
+				font-family: Pretendard, sans-serif;
+				word-break: break-all;
+				white-space: normal;
+			}
+			td.mono {
+				font-family: Menlo, monospace;
+				word-break: keep-all;
+				white-space: nowrap;
+			}
+		`,
+	],
 })
 export class TransfersComponent implements OnInit {
 	@Input()
@@ -25,7 +38,7 @@ export class TransfersComponent implements OnInit {
 
 	public configuration: Config;
 	public columns: Columns[] = [
-		{ key: 'name', title: 'Name' },
+		{ key: 'name', title: 'Name', width: '80%' },
 		{ key: 'size', title: 'Size' },
 		{ key: 'percentage', title: 'Percentage' },
 		{ key: 'speed', title: 'Speed' },
@@ -55,5 +68,6 @@ export class TransfersComponent implements OnInit {
 		this.configuration = { ...DefaultConfig };
 		this.configuration.searchEnabled = true;
 		this.configuration.isLoading = false;
+		// this.configuration.tableLayout.theme = 'dark';
 	}
 }

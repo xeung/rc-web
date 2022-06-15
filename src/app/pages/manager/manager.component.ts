@@ -77,11 +77,11 @@ import { RemoteDetailComponent } from './homeMode/remote.detail';
 		</ng-template>
 		<nb-layout-footer [ngClass]="{ mobile: !mainBar, pc: mainBar }">
 			<nb-actions>
-				<nb-action *ngIf="fileMode" icon="copy" (click)="file.manipulate('copy')"></nb-action>
-				<nb-action *ngIf="fileMode" icon="move" (click)="file.manipulate('move')"></nb-action>
-				<nb-action *ngIf="fileMode" icon="trash-2" (click)="file.manipulate('del')"></nb-action>
-				<nb-action *ngIf="fileMode" icon="clipboard" (click)="paste()"></nb-action>
-				<nb-action *ngIf="fileMode" icon="folder-add" (click)="mkdirDialog()"></nb-action>
+				<nb-action *ngIf="fileMode" icon="copy" (click)="file.manipulate('copy')">COPY</nb-action>
+				<nb-action *ngIf="fileMode" icon="move" (click)="file.manipulate('move')">MOVE</nb-action>
+				<nb-action *ngIf="fileMode" icon="trash-2" (click)="file.manipulate('del')">DEL</nb-action>
+				<nb-action *ngIf="fileMode" icon="clipboard" (click)="paste()">PASTE</nb-action>
+				<nb-action *ngIf="fileMode" icon="folder-add" (click)="mkdirDialog()">NEW DIR</nb-action>
 				<nb-action
 					class="push-to-right"
 					style="padding-right: 1.5rem;padding-left: 0.5rem;"
@@ -102,7 +102,7 @@ import { RemoteDetailComponent } from './homeMode/remote.detail';
 		`
 			nb-layout-header {
 				position: sticky;
-				top: 4.75rem;
+				top: 3rem;
 				z-index: 700;
 			}
 			app-manager-breadcrumb {
@@ -144,7 +144,7 @@ import { RemoteDetailComponent } from './homeMode/remote.detail';
 				width: 100%;
 			}
 			nb-layout-footer.pc {
-				width: calc(100% - 16rem);
+				width: calc(100% - 12rem);
 			}
 			nb-layout-footer ::ng-deep nav {
 				overflow-x: auto;

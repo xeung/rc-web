@@ -19,7 +19,7 @@ import { AppComponent } from './app.component';
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		ResponsiveModule.forRoot(),
-		NbThemeModule.forRoot({ name: 'default' }),
+		NbThemeModule.forRoot({ name: 'rclone' }),
 		NbMenuModule.forRoot(),
 		NbToastrModule.forRoot(),
 		NbLayoutModule,

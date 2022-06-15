@@ -1,11 +1,24 @@
 @import '~@nebular/theme/styles/theming';
-@import '~@nebular/theme/styles/themes/default';
+@import '~@nebular/theme/styles/themes/dark';
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 $nb-themes: nb-register-theme(
 	(
 		// add your variables here like:
 			// color-bg: #4ca6ff,
+			header-height: 3rem,
+			header-padding: 0.5rem,
+			sidebar-width: 12rem,
+			color-basic-800: rgb(15, 15, 15),
+			color-basic-900: rgb(10, 10, 10),
+			color-basic-1000: rgb(5, 5, 5),
+			color-basic-1100: #000,
+			font-family-primary: Pretendard,
+			shadow: 0 0.5rem 1rem 0 rgb(5, 5, 5),
+			card-height-small: 20rem,
+			header-text-font-weight: 900,
+			header-text-font-size: 1rem
 	),
-	default,
-	default
+	rclone,
+	dark
 );
