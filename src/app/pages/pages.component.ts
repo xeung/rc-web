@@ -23,7 +23,10 @@ import { MENU_ITEMS } from './pages-menu';
 					<nb-action style="padding: 0 0.5rem;">
 						<img src="./assets/favicon.svg" style="height: 1rem;" />
 					</nb-action>
-					<nb-action style="padding: 0 0.5rem;"> <h4>rclone</h4> </nb-action>
+					<nb-action style="padding: 0 0.5rem;">
+						<h4>rc-web</h4>
+						ui v.1.0
+					</nb-action>
 				</nb-actions>
 			</nb-layout-header>
 
@@ -49,6 +52,7 @@ import { MENU_ITEMS } from './pages-menu';
 				font-weight: 900;
 				font-size: 1rem;
 				margin-bottom: 0.15rem;
+				margin-right: 0.4rem;
 			}
 		`,
 	],

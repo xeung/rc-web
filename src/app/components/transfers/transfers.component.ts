@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 // import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
-import { CoreStatsFlow, ITransferring } from '../../../@dataflow/rclone';
-import { FormatBytes } from '../../../utils/format-bytes';
-import { ForamtDuration } from '../../../utils/format-duration';
+import { CoreStatsFlow, ITransferring } from '../../@dataflow/rclone';
+import { FormatBytes } from '../../utils/format-bytes';
+import { ForamtDuration } from '../../utils/format-duration';
 
 @Component({
-	selector: 'app-jobs-transferring',
+	selector: 'app-transfer-list',
 	template: `
 		<div class="row full">
 			<div class="container-fluid">
@@ -25,31 +25,26 @@ import { ForamtDuration } from '../../../utils/format-duration';
 								row.perc
 							}}%, transparent {{ row.perc }}%)"
 						>
-							<td width="70%">
+							<td class="name">
 								<small class="mono muted">{{ row.path }}</small>
 								<br />
 								<strong class="mono">{{ row.pathName }}</strong>
 							</td>
-							<td width="10%" class="mono">
-								<span class="muted">{{ row.doneSizeHumanReadable }}<br />/</span>
-								{{ row.sizeHumanReadable }}
+							<td class="stat">
+								<span class="muted">{{ row.doneSizeHumanReadable }}<br />/ </span>
+								<strong>{{ row.sizeHumanReadable }}</strong>
 							</td>
-							<td width="10%" class="mono">{{ row.perc }} % <br />{{ row.speedHumanReadable }}</td>
-							<td width="10%" class="mono">{{ row.etaHumanReadable }}</td>
+							<td class="stat text-center">
+								<span class="badge badge-pill badge-dark">{{ row.perc }} %</span>
+								<br />
+								<strong>{{ row.speedHumanReadable }}</strong>
+							</td>
+							<td class="stat">{{ row.etaHumanReadable }}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<!-- <ngx-table class="dark" [configuration]="configuration" [data]="data" [columns]="columns">
-			<ng-template let-row>
-				<td>{{ row.name }}</td>
-				<td class="mono">{{ row.sizeHumanReadable }}</td>
-				<td class="mono">{{ row.percentage }}</td>
-				<td class="mono">{{ row.speedHumanReadable }}</td>
-				<td class="mono">{{ row.etaHumanReadable }}</td>
-			</ng-template>
-		</ngx-table> -->
 	`,
 	styles: [
 		`
@@ -64,11 +59,23 @@ import { ForamtDuration } from '../../../utils/format-duration';
 				font-family: Pretendard, sans-serif;
 				word-break: break-all;
 				white-space: normal;
+				vertical-align: middle;
+			}
+			td.name {
+				width: 80%;
+				max-width: 80%;
+				overflow-x: scroll;
 			}
 			.mono {
 				font-family: Menlo, monospace;
+			}
+			td.stat {
+				min-width: 120px;
 				word-break: keep-all;
 				white-space: nowrap;
+			}
+			td.stat .badge {
+				font-size: 0.8rem;
 			}
 			.small {
 				font-size: 0.3rem;
@@ -91,18 +98,10 @@ import { ForamtDuration } from '../../../utils/format-duration';
 		`,
 	],
 })
-export class TransfersComponent implements OnInit {
+export class TransferListComponent implements OnInit {
 	@Input()
 	stats$: CoreStatsFlow;
 
-	// public configuration: Config;
-	// public columns: Columns[] = [
-	// 	{ key: 'name', title: 'Name', width: '80%' },
-	// 	{ key: 'size', title: 'Size' },
-	// 	{ key: 'percentage', title: 'Percentage' },
-	// 	{ key: 'speed', title: 'Speed' },
-	// 	{ key: 'eta', title: 'eta' },
-	// ];
 	public data: (ITransferring & {
 		doneSizeHumanReadable: string;
 		sizeHumanReadable: string;
@@ -121,6 +120,7 @@ export class TransfersComponent implements OnInit {
 			const data = x['core-stats'].transferring;
 			this.data = data ? data : ([] as any);
 			this.data.forEach(y => {
+				y.bytes = y.bytes > 0 ? y.bytes : 0;
 				y.sizeHumanReadable = FormatBytes(y.size, 3);
 				y.doneSizeHumanReadable = FormatBytes(y.bytes, 3);
 				y.perc = Math.round((y.bytes / y.size) * 10000) / 100;
@@ -133,10 +133,5 @@ export class TransfersComponent implements OnInit {
 				y.path = p.join('/') + '/';
 			});
 		});
-
-		// this.configuration = { ...DefaultConfig };
-		// this.configuration.searchEnabled = true;
-		// this.configuration.isLoading = false;
-		// this.configuration.tableLayout.theme = 'dark';
 	}
 }

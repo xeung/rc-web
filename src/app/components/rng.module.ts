@@ -8,6 +8,7 @@ import { RngKeyValueTableComponent } from './key-value-table/key-value-table.com
 import { RngSpaceUsageChartComponent } from './space-usage-chart/space-usage-chart.component';
 import { RngSpeedChartComponent } from './speed-chart/speed-chart.component';
 import { RngSummaryComponent } from './summary/summary.component';
+import { TransferListComponent } from './transfers/transfers.component';
 
 const RngComponents = [
 	RngSpeedChartComponent,
@@ -15,6 +16,7 @@ const RngComponents = [
 	RngSummaryComponent,
 	RngKeyValueTableComponent,
 	RngSpaceUsageChartComponent,
+	TransferListComponent,
 ];
 
 @NgModule({

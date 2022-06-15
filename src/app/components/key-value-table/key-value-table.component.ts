@@ -14,7 +14,7 @@ import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 		>
 			<ng-template let-row let-rowIndex="index">
 				<th
-					style="border: none; padding: 0.25rem 3% 0.25rem 0.1rem;text-align: right; white-space: nowrap;"
+					style="border: none; padding: 0.25rem 3% 0.25rem 0.1rem;text-align: left; white-space: nowrap;"
 				>
 					{{ row.title ? row.title : row.key }}
 				</th>

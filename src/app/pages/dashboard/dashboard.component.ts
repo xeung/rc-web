@@ -98,6 +98,14 @@ import { ConnectionService } from '../connection.service';
 						</nb-card-body>
 					</nb-card>
 				</div>
+				<div class="col-12">
+					<nb-card>
+						<nb-card-header> Global Transfers </nb-card-header>
+						<nb-card-body>
+							<app-transfer-list [stats$]="stats$"> </app-transfer-list>
+						</nb-card-body>
+					</nb-card>
+				</div>
 				<div class="col-sm-12 col-md-6">
 					<nb-card>
 						<nb-card-header> Memory </nb-card-header>

@@ -9,9 +9,9 @@ vscode:
     - Angular.ng-template@0.1000.2
     - vscode-icons-team.vscode-icons@10.1.1
     - esbenp.prettier-vscode@5.1.3
-    - msjsdiag.debugger-for-chrome@4.12.6
+    # - msjsdiag.debugger-for-chrome@4.12.6
     - oderwat.indent-rainbow@7.4.0
-    - CoenraadS.bracket-pair-colorizer-2@0.1.4
+    # - CoenraadS.bracket-pair-colorizer-2@0.1.4
     - mrmlnc.vscode-scss@0.9.1
     - johnpapa.Angular2@9.1.2
     - christian-kohler.path-intellisense@2.2.1

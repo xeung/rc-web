@@ -13,7 +13,7 @@ import { CleanFinishedGroupDialogComponent } from './dialogs/clean-finished-grou
 	selector: 'app-jobs',
 	template: `
 		<nb-layout>
-			<nb-sidebar tag="group" *showItBootstrap="['xl', 'lg', 'md']">
+			<nb-sidebar tag="group" *showItBootstrap="['xl']">
 				<nb-card-header>
 					Groups
 					<nb-icon icon="trash-2-outline" (click)="clearGroups()"></nb-icon>
@@ -47,7 +47,7 @@ import { CleanFinishedGroupDialogComponent } from './dialogs/clean-finished-grou
 			<app-job-group-options-context-menu #OptionsMenu> </app-job-group-options-context-menu>
 
 			<nb-layout-column>
-				<nb-card *hideItBootstrap="['xl', 'lg', 'md']">
+				<nb-card *hideItBootstrap="['xl']">
 					<nb-card-header>
 						<nb-icon
 							icon="trash-2-outline"
@@ -87,7 +87,7 @@ import { CleanFinishedGroupDialogComponent } from './dialogs/clean-finished-grou
 								<nb-card-header>
 									Summary
 									<nb-icon
-										*hideItBootstrap="['xl', 'lg', 'md']"
+										*hideItBootstrap="['xl']"
 										icon="more-vertical"
 										(click)="OptionsMenu.onContextMenu($event, activeGroup)"
 									></nb-icon>
@@ -103,7 +103,7 @@ import { CleanFinishedGroupDialogComponent } from './dialogs/clean-finished-grou
 							<nb-card>
 								<nb-card-header> Transferring </nb-card-header>
 								<nb-card-body>
-									<app-jobs-transferring [stats$]="stats$"> </app-jobs-transferring>
+									<app-transfer-list [stats$]="stats$"> </app-transfer-list>
 								</nb-card-body>
 							</nb-card>
 						</div>
