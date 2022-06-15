@@ -36,7 +36,6 @@ export interface CoreStatsFlowOutItemNode {
 	transfers: number;
 	transferring?: ITransferring[];
 	checking?: string[];
-
 }
 
 export interface CoreStatsFlowOutNode extends FlowOutNode {
