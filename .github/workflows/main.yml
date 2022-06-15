@@ -43,4 +43,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run release -- -p dev && git reset HEAD~
-          npm run deploy --  --name="ElonH" --email="elonhhuang@gmail.com"
+          npm run deploy --  --name="xeung" --email="74726106+xeung@users.noreply.github.com"
